@@ -1,0 +1,38 @@
+[
+  {
+    "functionDeclarations": [
+      {
+        "name": "agendamento_reuniao",
+        "description": "vai agendar uma reunião com base nos detalhes fornecidos.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string",
+              "description": "Data da reunião (e.g., '29/07/2025' ou '29 de julho de 2025')"
+            },
+            "horario": {
+              "type": "string",
+              "description": "O horário da reunião (e.g., '14:00' ou '2 da tarde')"
+            },
+            "assunto": {
+              "type": "string",
+              "description": "O assunto da reunião (e.g., 'Reunião de equipe')"
+            }
+          },
+          "required": ["data", "horario", "assunto"]
+        }
+      },
+      {
+        "name": "listar_reunioes",
+        "description": "Lista as reuniões agendadas.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    ]
+  }
+]
+

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: secretariat
+  datasource:
+    url: ${SB_APP_DB_STRING}
+    username: ${SB_APP_DB_USERNAME}
+    password: ${SB_APP_DB_PASSWORD}
+server:
+  port: ${SB_APP_SERVER_PORT}
+my-app:
+  gemini:
+    url: ${GEMINI_REST_URL}
+    model: ${GEMINI_MODEL}
+    apikey: ${GEMINI_API_KEY}
+  evolution:
+    url: ${EVOLUTION_API_URL}

@@ -1,0 +1,86 @@
+services:
+  evolution-api:
+    image: atendai/evolution-api:v2.1.1
+    container_name: devloop_evolution_api_dev
+    depends_on:
+      - postgres
+      - redis
+      - redisinsight
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      - AUTHENTICATION_API_KEY=${MY_APP_EVOLUTION_AUTHENTICATION_API_KEY}
+      - DATABASE_ENABLED=true
+      - DATABASE_PROVIDER=postgresql
+      - DATABASE_CONNECTION_URI=${MY_APP_DATABASE_CONNECTION_URI}
+      - CACHE_REDIS_ENABLED=true
+      - CACHE_REDIS_URI=${MY_APP_CACHE_REDIS_URI}
+      - CACHE_REDIS_PREFIX_KEY=evolution
+      - CACHE_REDIS_SAVE_INSTANCES=true
+      - CACHE_LOCAL_ENABLED=false
+    volumes:
+      - evolution_instances:/evolution/instances
+    networks:
+      - evolution-net
+
+  postgres:
+    image: postgres:17.5-alpine3.21
+    container_name: devloop_postgres_dev
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - evolution-net
+
+  pgadmin:
+    container_name: devloop_pgadmin_dev
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@devloop.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - evolution-net
+
+  redis:
+    container_name: devloop_redis_dev
+    image: redis:8.0.1-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    networks:
+      - evolution-net
+
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: devloop_redisinsight_dev
+    restart: always
+    depends_on:
+      - redis
+    ports:
+      - '5540:5540'
+    volumes:
+      - redisinsight:/data
+    networks:
+      - evolution-net
+
+volumes:
+  evolution_instances:
+  postgres_data:
+  pgadmin-data:
+  redisinsight:
+
+networks:
+  evolution-net:
+    driver: bridge
