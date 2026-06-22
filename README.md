@@ -1,5 +1,9 @@
 # 🤖 Secretariat - Assistente Virtual da Devloop
 
+![Status](https://img.shields.io/badge/status-estudo%2Fdesafio-blue)
+
+![Java](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-6DB33F?logo=springboot&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white) ![Flyway](https://img.shields.io/badge/Flyway-CC0200?logo=flyway&logoColor=white)
+
 Um sistema de secretariado virtual inteligente que integra WhatsApp (via Evolution API) com IA (Google Gemini) para automatizar o agendamento de reuniões e gerenciamento de agenda.
 
 ## 📋 Descrição
