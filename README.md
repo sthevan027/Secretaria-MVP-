@@ -1,8 +1,16 @@
-# 🤖 Secretariat - Assistente Virtual da Devloop
+# AgendaZap — Agendamento por WhatsApp para clínicas e salões
 
 ![Status](https://img.shields.io/badge/status-estudo%2Fdesafio-blue)
 
 ![Java](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-6DB33F?logo=springboot&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white) ![Flyway](https://img.shields.io/badge/Flyway-CC0200?logo=flyway&logoColor=white)
+
+## 🚀 Evolução: de secretária MVP para agendamento por WhatsApp
+
+**De → Para:** de assistente de agendamento para produto anti-no-show de clínicas e salões.
+
+**Novas funcionalidades:** bot que agenda e reagenda pelo WhatsApp; confirmação e lembrete automático que reduz faltas; painel do estabelecimento com a agenda do dia.
+
+**Mudanças na lógica:** a IA passa a orquestrar o fluxo de agendamento (slots, conflitos); estado de agendamento com confirmação e lembrete temporizado; suporte a múltiplos estabelecimentos.
 
 Um sistema de secretariado virtual inteligente que integra WhatsApp (via Evolution API) com IA (Google Gemini) para automatizar o agendamento de reuniões e gerenciamento de agenda.
 
